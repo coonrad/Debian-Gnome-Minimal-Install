@@ -23,6 +23,21 @@ gnome() {
         xsel
 }
 
+apps() {
+    sudo apt install -y \
+        firefox \
+        keepassxc \
+        inkscape
+}
+
+base() {
+    sudo apt install -y \
+        git \
+        rsync \
+        sudo \
+        tcpdump
+}
+
 if [[ $(uname) == 'Linux' ]]; then
     if [ "$(/bin/grep ^ID= /etc/os-release)" = "ID=debian" ]; then
         "$@" && echo

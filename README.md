@@ -1,6 +1,6 @@
-![debian_desktop.jpg](debian-desktop.jpg)
-
 ## Debian Gnome Minimal Install Guide
+
+![debian_desktop.jpg](debian-desktop.jpg)
 
 A minimal installation of Linux can reduce disk space and RAM usage, increase security and privacy by reducing attack surface. Increase performance by reducing time spent upgrading and troubleshooting.
 
@@ -27,15 +27,15 @@ As you progress through the debian installation, towards the end you will be pre
 
 Uncheck **Debian desktop environment** to install a minimal debian system.
 
-## Optionally update sources to trixie (testing) or sid (unstable)
+## Optional: update sources to trixie (testing) or sid (unstable)
 
 Update sources to `trixie`. The current testing branch.
 
 `sudo $EDITOR /etc/apt/sources`:
 
 ```bash
-deb http://deb.debian.org/debian trixie main
-deb-src http://deb.debian.org/debian trixie main
+deb http://deb.debian.org/debian trixie main non-free-firmware
+deb-src http://deb.debian.org/debian trixie main non-free-firmware
 
 deb http://deb.debian.org/debian-security/ trixie-security main
 deb-src http://deb.debian.org/debian-security/ trixie-security main
@@ -52,8 +52,8 @@ Add `non-free-firmware` after each `main` entry if you need special drivers or a
 The other option would be debian `sid` (unstable). Update `sources` as follows:
 
 ```bash
-deb http://deb.debian.org/debian/ unstable main
-deb-src http://deb.debian.org/debian/ unstable main
+deb http://deb.debian.org/debian/ unstable main non-free-firmware
+deb-src http://deb.debian.org/debian/ unstable main non-free-firmware
 ```
 
 Upgrade your system:
@@ -64,20 +64,28 @@ sudo apt update && apt upgrade
 
 Reboot to load updated kernel and services.
 
-## Quick Install Minimal Gnome
+## Install Minimal Gnome
+
+Install `gnome-shell` and reboot for a basic gnome desktop environment.
+
+```sudo apt install gnome-shell```
+
+As this point you can add required packages as needed.
+
+It is likely that you will want additional packages. So you can use the following script to help automate the install.
 
 ```bash
 # clone the repo
 git clone https://github.com/coonrad/Debian-Gnome-Minimal-Install.git
 # cd to repo
 cd Debian-Gnome-Minimal-Install
-# run install script and call the gnome function
+# edit install-debian to reflect your desired packages
+# run install script and call the gnome function or other functions
 ./install-debian gnome
 reboot
 ```
-The minimal gnome package list will install gdm (login manager), and once you reboot you should have a fully functional minimal gnome installation.
 
-The simple script will take the command line argument (in this case 'gnome') and match it to the function to install the selected gnome related packages. (It also verifies you are running Debian before doing anyhting.) You can add or subtract packages to suit your needs. (gnome-session is required.)
+The script will take the command line argument (in this case 'gnome') and match it to the function to install the selected gnome related packages. (It also verifies you are running Debian before doing anyhting.) You can add or subtract packages to suit your needs.
 
 ```bash
 #!/usr/bin/env bash
@@ -105,44 +113,24 @@ gnome() {
         xsel
 }
 
-if [[ $(uname) == 'Linux' ]]; then
-    if [ "$(/bin/grep ^ID= /etc/os-release)" = "ID=debian" ]; then
-        "$@" && echo
-    fi
-fi
-```
-
-You can also add functions. You may have some base packages, python programs or applications you want to install:
-
-```bash
-base() {
-    sudo apt install -y \
-        open-vm-tools-desktop \
-        openssh-server \
-        pandoc \
-        ripgrep \
-        rsync \
-        shellcheck \
-        shfmt \
-        tcpdump \
-        tmux \
-        tree
-}
-
-py() {
-    sudo apt install -y \
-        python3-autopep8 \
-        python3-bs4 \
-        python3-pynvim \
-        python3-pip
-}
-
 apps() {
     sudo apt install -y \
         firefox \
         keepassxc \
         inkscape
 }
-```
 
-call the new function `./install-debian base`
+base() {
+    sudo apt install -y \
+        git \
+        rsync \
+        sudo \
+        tcpdump
+}
+
+if [[ $(uname) == 'Linux' ]]; then
+    if [ "$(/bin/grep ^ID= /etc/os-release)" = "ID=debian" ]; then
+        "$@" && echo
+    fi
+fi
+```
