@@ -27,29 +27,29 @@ As you progress through the debian installation, towards the end you will be pre
 
 Uncheck **Debian desktop environment** to install a minimal debian system.
 
-## Update sources to testing or unstable (optional)
+## Optionally update sources to trixie (testing) or sid (unstable)
 
-Update sources to `bookworm.` The current testing branch.
+Update sources to `trixie.` The current testing branch.
 
 `sudo $EDITOR /etc/apt/sources`:
 
 ```bash
-deb http://deb.debian.org/debian bookworm main
-deb-src http://deb.debian.org/debian bookworm main
+deb http://deb.debian.org/debian trixie main
+deb-src http://deb.debian.org/debian trixie main
 
-deb http://deb.debian.org/debian-security/ bookworm-security main
-deb-src http://deb.debian.org/debian-security/ bookworm-security main
+deb http://deb.debian.org/debian-security/ trixie-security main
+deb-src http://deb.debian.org/debian-security/ trixie-security main
 
-deb http://deb.debian.org/debian bookworm-updates main
-deb-src http://deb.debian.org/debian bookworm-updates main
+deb http://deb.debian.org/debian trixie-updates main
+deb-src http://deb.debian.org/debian trixie-updates main
 
-# deb http://deb.debian.org/debian bookworm-backports main
-# deb-src http://deb.debian.org/debian bookworm-backports main
+# deb http://deb.debian.org/debian trixie-backports main
+# deb-src http://deb.debian.org/debian trixie-backports main
 ```
 
-Add `contrib non-free` after each `main` entry if you need special drivers or additional firmware.
+Add `non-free-firmware` after each `main` entry if you need special drivers or additional firmware.
 
-The other option would be debian `unstable` (sid). Update `sources` as follows:
+The other option would be debian `sid` (unstable). Update `sources` as follows:
 
 ```bash
 deb http://deb.debian.org/debian/ unstable main
