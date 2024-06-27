@@ -134,3 +134,25 @@ if [[ $(uname) == 'Linux' ]]; then
     fi
 fi
 ```
+
+## Install directly to testing or unstable with the mini.iso
+
+If you are installing with the standard debian installer, but would like to set your sources to testing or unstable. You will need to complete the install, reboot, update the sources, and then upgrade all packages to the new sources. You can skip this step and install directly to testing or unstable with the mini.iso.
+
+- [mini.iso](https://d-i.debian.org/daily-images/amd64/daily/netboot/)
+- [mini.iso SHA256SUMS](https://d-i.debian.org/daily-images/amd64/daily/SHA256SUMS)
+
+Note: The mini.iso is built daily. There are times when the build wasn't completed or not available for some reason.
+
+![mini1.jpg](mini1.jpg)
+
+Upon booting the mini.iso select "Advanced options".
+
+![mini2.jpg](mini2.jpg)
+
+Then select "Expert install".
+
+As you progress through the installation steps you will be given the option to select the mirror of the debian archive.
+
+![mini3.jpg](mini3.jpg)
+
