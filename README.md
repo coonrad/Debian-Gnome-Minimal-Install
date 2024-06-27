@@ -18,11 +18,9 @@ The standard Debian installation process for Gnome desktop includes additional p
 
 ## ISO for Installing Debian
 
-* [debian-11.3.0-amd64-netinst.iso](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.3.0-amd64-netinst.iso)
-
-* [Installing Debian 11.3](https://www.debian.org/releases/bullseye/debian-installer/)
-
-* [Debian “bullseye” Release Information](https://www.debian.org/releases/bullseye/)
+* [debian-12.5.0-amd64-netinst.iso](https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.5.0-amd64-netinst.iso)
+* [Installing Debian 12.5](https://www.debian.org/releases/bookworm/debian-installer/)
+* [Debian “bookworm” Release Information](https://www.debian.org/releases/bookworm/)
 
 ## Installing Debian without a desktop environment
 
