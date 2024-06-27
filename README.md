@@ -144,13 +144,13 @@ If you are installing with the standard debian installer, but would like to set 
 
 Note: The mini.iso is built daily. There are times when the build wasn't completed or not available for some reason.
 
-![mini1.jpg](mini1.jpg)
-
 Upon booting the mini.iso select "Advanced options".
 
-![mini2.jpg](mini2.jpg)
+![mini1.jpg](mini1.jpg)
 
 Then select "Expert install".
+
+![mini2.jpg](mini2.jpg)
 
 As you progress through the installation steps you will be given the option to select the mirror of the debian archive.
 
