@@ -29,7 +29,7 @@ Uncheck **Debian desktop environment** to install a minimal debian system.
 
 ## Optionally update sources to trixie (testing) or sid (unstable)
 
-Update sources to `trixie.` The current testing branch.
+Update sources to `trixie`. The current testing branch.
 
 `sudo $EDITOR /etc/apt/sources`:
 
