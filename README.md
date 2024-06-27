@@ -9,11 +9,8 @@ The standard Debian installation process for Gnome desktop includes additional p
 ## Requirements
 
 * A debian installation (hardware or virtual machine) with appropriate video drivers.
-
 * sudo privileges to install packages and run optional scripts.
-
 * Installation of `git` to clone this repo `sudo pkg install git`
-
 * Installation of `bash` to run install script `sudo pkg install bash`
 
 ## ISO for Installing Debian
